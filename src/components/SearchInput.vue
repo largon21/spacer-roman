@@ -48,6 +48,7 @@ export default {
     input {
       height: 30px;
       border: 0;
+      background: none;
       border-bottom: 1px solid black;
     }
   }

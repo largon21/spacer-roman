@@ -1,8 +1,5 @@
 <template>
   <div class="app">
-    <div class="nav">
-      <router-link to="/">Search</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
@@ -15,5 +12,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 </style>
