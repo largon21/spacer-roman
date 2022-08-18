@@ -1,43 +1,22 @@
 <template>
   <div class="wrapper">
-    <div class="search">
-      <label for="search"> Search </label>
-      <input id="search" name="search" v-model="searchValue" @input="handleInput"/>
-    </div>
-    <ul>
-      <li v-for="item in results" :key="item.data[0].nasa_id">
-        <p>{{ item.data[0].description }}</p>
-      </li>
-    </ul>
+    <Claim />
+    <SearchInput />
+
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-import _ from 'lodash'
-
-const API = 'https://images-api.nasa.gov/search'
+import Claim from '@/components/Claim';
+import SearchInput from '@/components/SearchInput';
 
 export default {
   name: 'Search',
-  data() {
-    return {
-      searchValue: '',
-      results: [],
-    };
+  components: {
+    Claim,
+    SearchInput,
   },
-  methods: {
-    handleInput: _.debounce(function() {
-      axios.get(`${API}?q=${this.searchValue}&media_type=image`)
-        .then((response) => {
-          this.results = response.data.collection.items
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }, 500),
-  }
-}
+};
 </script>
 <style lang="scss" scoped>
   .wrapper {
@@ -49,19 +28,5 @@ export default {
     width: 100%;
   }
 
-  .search {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
 
-    label {
-      front-family: Montserrat, sans-serif;
-    }
-
-    input {
-      height: 30px;
-      border: 0;
-      border-bottom: 1px solid black;
-    }
-  }
 </style>
