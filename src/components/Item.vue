@@ -21,16 +21,21 @@ export default {
     style() {
       return `backgroundImage: url("${this.photo}")`;
     },
-  }
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
 .item {
-  width: 300px;
+  width: 40vw;
   height: 300px;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: 50%;
+
+  @media (min-width: 768px) {
+    width: 25vw;
+  }
 }
 </style>
