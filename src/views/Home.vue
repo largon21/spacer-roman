@@ -61,11 +61,9 @@ export default {
           this.step = 1;
         })
         .catch((error) => {
-          console.log(error);
         });
     }, 500),
     handleModalOpen(item) {
-      console.log(item);
       this.modalOpen = true;
       this.modalData = item;
     },
